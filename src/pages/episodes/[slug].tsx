@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { api } from "../../services/api";
 import { convertDurationToTimeString } from "../../utils/convertDurationToTimeString";
+import { useRouter } from "next/router";
 
 import styles from "./episode.module.scss";
 
@@ -62,6 +63,22 @@ export default function Episode({ episode }: EpisodeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await api.get("episodes", {
+    params: {
+      _limit: 2,
+      _sort: "published_at",
+      _order: "desc",
+    },
+  });
+
+  const paths = data.map((episode) => {
+    return {
+      params: {
+        slug: episode.id,
+      },
+    };
+  });
+
   return {
     paths: [],
     fallback: "blocking",
@@ -70,7 +87,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params;
-
   const { data } = await api.get(`/episodes/${slug}`);
 
   const episode = {
