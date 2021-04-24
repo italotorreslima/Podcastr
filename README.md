@@ -37,7 +37,7 @@ This project was developed using the following technologies:
 Clone the project and access the folder
 
 ```bash
-$ git clone https://github.com/C0bal/reactjs-podcastr-nlw5 && cd reactjs-podcastr-nlw5
+$ git clone https://github.com/italotorreslima/Podcastr && cd Podcastr
 ```
 
 Follow the steps below
@@ -70,5 +70,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 
 ---
 
-<p align="center">Projected by Rafael Menegon with 🖤</p>
+<p align="center">Projected by Ítalo Torres with 🖤</p>
 <p align="center">Readme inspired by Guilherme Capitão</p>
